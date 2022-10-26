@@ -1,9 +1,9 @@
-const {createApp} = Vue;
+const { createApp } = Vue;
 
 createApp({
-    data: function(){
-        return{
-            slides : [
+    data: function () {
+        return {
+            slides: [
                 {
                     image: 'img/01.jpg',
                     title: 'Svezia',
@@ -30,8 +30,29 @@ createApp({
                     text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.',
                 }
             ],
-            slideIndex : 0,
+            slideIndex: 0,
         }
+    },
+    methods: {
+        slidePrev: function () {
+            if (this.slideIndex > 0) {
+                this.slideIndex--;
+                // this.slideIndex = this.slideIndex - 1;
+            } else {                
+                this.slideIndex = this.slides.length - 1;
+            }
+        },
+
+        slideNext: function () {
+            if (this.slideIndex < this.slides.length - 1) {
+                this.slideIndex++;
+                // this.slideIndex = this.slideIndex + 1;
+            } else {
+                this.slideIndex = 0;
+            }
+
+        }
+
     }
 }).mount("#app");
 
