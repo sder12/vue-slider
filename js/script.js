@@ -31,6 +31,9 @@ createApp({
                 }
             ],
             slideIndex: 0,
+
+            //NAME FUNCTION AUTOPLAY
+            autoplay: "",
         }
     },
     methods: {
@@ -38,7 +41,7 @@ createApp({
             if (this.slideIndex > 0) {
                 this.slideIndex--;
                 // this.slideIndex = this.slideIndex - 1;
-            } else {                
+            } else {
                 this.slideIndex = this.slides.length - 1;
             }
         },
@@ -54,9 +57,26 @@ createApp({
         },
         visualizeImg: function(clickedIndex){
             this.slideIndex = clickedIndex;
-        }
+        },
 
+        //AUTOPLAY - methods
+        createAutoplay: function(){
+            this.autoplay = setInterval(this.slideNext, 800)
+        },
+
+        stopAutoplay: function () {
+            clearInterval(this.autoplay)
+        }
+    },
+
+
+    //AUTOMATIC - autoplay
+    created() {
+        this.createAutoplay();
     }
+
+
+
 }).mount("#app");
 
 
