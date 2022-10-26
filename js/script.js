@@ -51,6 +51,9 @@ createApp({
                 this.slideIndex = 0;
             }
 
+        },
+        visualizeImg: function(clickedIndex){
+            this.slideIndex = clickedIndex;
         }
 
     }
